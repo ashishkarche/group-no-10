@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import './App.css';
 
+import { FaGithub } from 'react-icons/fa';
 import screenshot1 from './assets/Screenshot-1.png';
 import screenshot2 from './assets/Screenshot-2.png';
 import screenshot3 from './assets/Screenshot-3.png';
@@ -144,6 +145,9 @@ function App() {
         <>
           <header>
             <h1>Secure File Storage on Cloud</h1>
+            <a href="https://github.com/ashishkarche/SecureFileApp" target="_blank" rel="noopener noreferrer">
+              <FaGithub style={{ fontSize: '24px', color: 'white', marginLeft: '10px' }} />
+            </a>
           </header>
           {loading ? (
             <DotLoader />
