@@ -1,38 +1,161 @@
-.App {
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  color: #333;
+  margin: 0;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
   text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  margin-bottom: 10px;
+  font-size: 2.5rem; /* Increased header size */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+section {
+  padding: 40px 20px;
+  max-width: 800px; /* Maximum width for desktop */
+  margin: 20px auto; /* Center the section */
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s; /* Added transition */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+section:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+h2 {
+  color: #007bff;
+  font-size: 2rem; /* Increased h2 size */
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s; /* Added transform */
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.loading {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100px;
+}
+
+.screenshot {
+  width: 80%; /* Set a fixed width to make images smaller */
+  max-width: 100%; /* Maintain responsiveness */
+  border-radius: 10px;
+  margin: 0 auto; /* Center the image */
+  transition: transform 0.3s; /* Added transition */
+}
+
+.screenshot:hover {
+  transform: scale(1.05); /* Slightly enlarge image on hover */
+}
+
+.slider {
+  margin: 20px auto;
+  max-width: 600px; /* Set a maximum width for the slider */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  section {
+    padding: 30px; /* Reduced padding for larger tablets */
+  }
+  .screenshot {
+    width: 90%; /* Make images slightly larger on larger tablets */
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 900px) {
+  section {
+    padding: 25px; /* Further reduced padding for tablets */
   }
-  to {
-    transform: rotate(360deg);
+  h1 {
+    font-size: 2rem; /* Adjust font size for header */
   }
+  h2 {
+    font-size: 1.5rem; /* Adjust font size for h2 */
+  }
+  button {
+    padding: 8px 16px; /* Smaller button size */
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 20px; /* Padding for mobile */
+  }
+  h1 {
+    font-size: 1.5rem; /* Further reduce header font size */
+  }
+  h2 {
+    font-size: 1.2rem; /* Further reduce h2 font size */
+  }
+  .screenshot {
+    width: 100%; /* Full width for mobile images */
+  }
+  button {
+    width: 100%; /* Full-width buttons on mobile */
+    padding: 12px; /* Adjust padding for mobile buttons */
+  }
+}
+
+.dot-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #007bff;
+  animation: bounce 0.6s infinite alternate;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
 }
