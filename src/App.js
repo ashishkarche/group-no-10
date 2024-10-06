@@ -64,7 +64,7 @@ function DownloadApp() {
               </div>
             ))}
           </Slider>
-          <a href="https://drive.google.com/file/d/1tWGMLeVT6jrQKctoNzM4MTVRjmBap8a1/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/ashishkarche/SecureFileApp/releases/download/v2.0/SecureFileAppSetup.exe" target="_blank" rel="noopener noreferrer">
             <button>Download Now</button>
           </a>
         </>
