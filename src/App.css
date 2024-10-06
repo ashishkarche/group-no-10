@@ -1,167 +1,276 @@
-@import '~slick-carousel/slick/slick.css';
-@import '~slick-carousel/slick/slick-theme.css';
+/* General Styling */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #e0eafc, #cfdef3);
-  color: #333;
   margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7fb;
+  color: #333;
 }
 
-header {
-  background-color: #007bff;
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #007bff, #0056b3);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
-  padding: 20px;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
 }
 
-header a {
-  margin-left: 10px; /* Adjust spacing as needed */
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
 }
 
-
-h1 {
-  margin-bottom: 10px;
-  font-size: 2.5rem; /* Increased header size */
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
 }
 
-section {
-  padding: 40px 20px;
-  max-width: 800px; /* Maximum width for desktop */
-  margin: 20px auto; /* Center the section */
-  border-radius: 10px;
+.cta-button {
+  background-color: #ff4b2b;
+  padding: 15px 30px;
+  color: white;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #ff6f3d;
+}
+
+/* Features Section */
+.features {
+  padding: 60px 20px;
   background-color: white;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s; /* Added transition */
-}
-
-section:hover {
-  transform: translateY(-5px); /* Subtle lift on hover */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
-}
-
-h2 {
-  color: #007bff;
-  font-size: 2rem; /* Increased h2 size */
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s, transform 0.3s; /* Added transform */
-}
-
-button:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px); /* Slight lift on hover */
-}
-
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-}
-
-.screenshot {
-  width: 80%; /* Set a fixed width to make images smaller */
-  max-width: 100%; /* Maintain responsiveness */
-  border-radius: 10px;
-  margin: 0 auto; /* Center the image */
-  transition: transform 0.3s; /* Added transition */
-}
-
-.screenshot:hover {
-  transform: scale(1.05); /* Slightly enlarge image on hover */
-}
-
-.slider {
-  margin: 20px auto;
-  max-width: 600px; /* Set a maximum width for the slider */
-}
-
-footer {
   text-align: center;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Screenshots Section (Collage) */
+.screenshots {
+  padding: 60px 20px;
+  background-color: #f4f7fb;
+  text-align: center;
+}
+
+.screenshots h2 {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 40px;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+  gap: 20px;
+  justify-items: center;
+}
+
+.screenshots-grid img {
+  width: 100%;
+  max-width: 300px; /* Prevent overly large images */
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .screenshots-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .screenshots-grid {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+  }
+}
+
+
+/* Testimonials Section */
+.testimonials {
+  padding: 60px 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.testimonial-item {
+  background-color: #f4f7fb;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Download Section */
+.download-section {
+  padding: 60px 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
+}
+
+.download-button {
+  background-color: #007bff;
+  padding: 15px 30px;
+  color: white;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%; /* Ensure it takes full width on mobile */
+  max-width: 400px; /* Set a maximum width */
+}
+
+.download-button.disabled {
+  background-color: gray;
+}
+
+.download-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Adjustments for Download Buttons */
+@media (max-width: 768px) {
+  .download-button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .download-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Footer */
+.footer {
   background-color: #007bff;
   color: white;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 1200px) {
-  section {
-    padding: 30px; /* Reduced padding for larger tablets */
-  }
-  .screenshot {
-    width: 90%; /* Make images slightly larger on larger tablets */
-  }
-}
-
-@media (max-width: 900px) {
-  section {
-    padding: 25px; /* Further reduced padding for tablets */
-  }
-  h1 {
-    font-size: 2rem; /* Adjust font size for header */
-  }
-  h2 {
-    font-size: 1.5rem; /* Adjust font size for h2 */
-  }
-  button {
-    padding: 8px 16px; /* Smaller button size */
-  }
-}
-
-@media (max-width: 600px) {
-  section {
-    padding: 20px; /* Padding for mobile */
-  }
-  h1 {
-    font-size: 1.5rem; /* Further reduce header font size */
-  }
-  h2 {
-    font-size: 1.2rem; /* Further reduce h2 font size */
-  }
-  .screenshot {
-    width: 100%; /* Full width for mobile images */
-  }
-  button {
-    width: 100%; /* Full-width buttons on mobile */
-    padding: 12px; /* Adjust padding for mobile buttons */
-  }
-}
-
-.dot-loader {
+  padding: 20px;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  gap: 10px;
 }
 
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 5px;
-  border-radius: 50%;
-  background-color: #007bff;
-  animation: bounce 0.6s infinite alternate;
+.footer a {
+  color: white;
+  transition: color 0.3s;
 }
 
-@keyframes bounce {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-15px); }
+.footer a:hover {
+  color: #ff6f3d;
 }
 
-.dot:nth-child(2) {
-  animation-delay: 0.2s;
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  .hero-content p {
+    font-size: 1.3rem;
+  }
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .download-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
-.dot:nth-child(3) {
-  animation-delay: 0.4s;
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .download-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .download-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}

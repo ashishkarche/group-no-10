@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick';
 import './App.css';
-
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaApple, FaWindows } from 'react-icons/fa';
 import screenshot1 from './assets/Screenshot-1.png';
 import screenshot2 from './assets/Screenshot-2.png';
 import screenshot3 from './assets/Screenshot-3.png';
-import LandingPage from './LandingPage'; // Import LandingPage component
 
 const screenshots = [screenshot1, screenshot2, screenshot3];
 
@@ -20,149 +17,131 @@ function DotLoader() {
   );
 }
 
-function DownloadApp() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000); // Simulate loading time
-    return () => clearTimeout(timer);
-  }, []);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 2000, // Change slide every 3 seconds
-    responsive: [
-      {
-        breakpoint: 600,
-        settings: {
-          dots: false, // Disable dots on small screens
-        },
-      },
-    ],
-  };
-
+function HeroSection() {
   return (
-    <section id="download">
+    <section className="hero">
+      <div className="hero-content">
+        <h1>Secure File Storage App</h1>
+        <p>Encrypt, store, and manage your files securely in the cloud.</p>
+        <a href="#download">
+          <button className="cta-button">Download Now</button>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function FeaturesSection() {
+  return (
+    <section className="features">
+      <h2>Why Choose Us?</h2>
+      <div className="features-grid">
+        <div className="feature-item">
+          <h3>Advanced Encryption</h3>
+          <p>We use AES, DES, and RC6 to keep your data secure at all times.</p>
+        </div>
+        <div className="feature-item">
+          <h3>Multiparty Encryption</h3>
+          <p>Collaborative encryption for added security in cloud file storage.</p>
+        </div>
+        <div className="feature-item">
+          <h3>Fully Homomorphic Encryption</h3>
+          <p>Allows computations on encrypted data without decryption.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ScreenshotCarousel() {
+  return (
+    <section className="screenshots">
+      <h2>App Screenshots</h2>
+      <div className="screenshots-grid">
+        {screenshots.map((screenshot, index) => (
+          <img key={index} src={screenshot} alt={`Screenshot ${index + 1}`} />
+        ))}
+      </div>
+    </section>
+
+  );
+}
+
+function TestimonialsSection() {
+  return (
+    <section className="testimonials">
+      <h2>What Our Users Say</h2>
+      <div className="testimonial-grid">
+        <div className="testimonial-item">
+          <p>"The best file storage app I've ever used! So secure and easy."</p>
+          <h3>- Sarah J.</h3>
+        </div>
+        <div className="testimonial-item">
+          <p>"I trust this app with all my sensitive files, highly recommend."</p>
+          <h3>- John D.</h3>
+        </div>
+        <div className="testimonial-item">
+          <p>"Great user experience, the encryption methods are top-notch."</p>
+          <h3>- Emma P.</h3>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DownloadSection() {
+  return (
+    <section id="download" className="download-section">
       <h2>Download Secure File Storage App</h2>
-      {loading ? (
-        <DotLoader />
-      ) : (
-        <>
-          <Slider {...settings} className="slider">
-            {screenshots.map((screenshot, index) => (
-              <div key={index}>
-                <img
-                  src={screenshot}
-                  alt={`Screenshot ${index + 1}`}
-                  className="screenshot"
-                />
-              </div>
-            ))}
-          </Slider>
-          <a href="https://github.com/ashishkarche/SecureFileApp/releases/download/v2.0/SecureFileAppSetup.exe" target="_blank" rel="noopener noreferrer">
-            <button>Download Now</button>
-          </a>
-        </>
-      )}
+      <div className="download-buttons">
+        <a
+          href="https://github.com/ashishkarche/SecureFileApp/releases/download/v2.0/SecureFileAppSetup.exe"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="download-button">
+            <FaWindows /> Download for Windows
+          </button>
+        </a>
+        <button className="download-button disabled">
+          <FaApple /> Coming Soon for macOS
+        </button>
+      </div>
     </section>
   );
 }
 
-
-function AppInfo() {
+function Footer() {
   return (
-    <section id="info">
-      <h2>About the App</h2>
-      <p>This app provides a secure solution for file storage using advanced cryptography techniques, allowing users to store secret data such as PDFs, images, executables, and any other type of file securely.</p>
-
-    </section>
-  );
-}
-
-function SystemRequirements() {
-  return (
-    <section id="requirements">
-      <h2>System Requirements</h2>
-      <ul>
-        <li>Operating System: Windows 10 / macOS</li>
-        <li>RAM: 4GB minimum</li>
-        <li>Disk Space: 500MB available space</li>
-        <li>Processor: Intel i3 or higher</li>
-      </ul>
-    </section>
-  );
-}
-
-function EncryptionAlgorithms() {
-  return (
-    <section id="encryption">
-      <h2>Encryption Algorithms</h2>
-      <ul>
-        <li>AES</li>
-        <li>DES</li>
-        <li>RC6</li>
-        <li>SHA5</li>
-      </ul>
-      <a href="https://chat.openai.com/share/d4c200ff-e7d9-451e-aa48-9c005a703ec9" target="_blank" rel="noopener noreferrer">
-        <p>Click to see explanation..</p>
+    <footer className="footer">
+      <p>© 2024 Secure File Storage App. All rights reserved.</p>
+      <a href="https://github.com/ashishkarche/SecureFileApp" target="_blank" rel="noopener noreferrer">
+        <FaGithub style={{ fontSize: '24px', color: 'white' }} />
       </a>
-    </section>
-  );
-}
-
-function MultipartyMethod() {
-  return (
-    <section id="multiparty">
-      <h2>Multiparty Method</h2>
-      <h3>Multiparty encryption with FHE</h3>
-      <p>Encrypted data can be safely stored or transferred for analysis.</p>
-      <p><strong>Fully homomorphic encryption:</strong> This method allows secure computation without limitations on operations.</p>
-    </section>
+    </footer>
   );
 }
 
 function App() {
-  const [showLanding, setShowLanding] = useState(true);
   const [loading, setLoading] = useState(true);
 
-  const handleContinue = () => {
-    setShowLanding(false);
-    setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 2000); // Simulate loading time
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
-  };
+  }, []);
 
   return (
     <div className="App">
-      {showLanding ? (
-        <LandingPage onContinue={handleContinue} />
+      {loading ? (
+        <DotLoader />
       ) : (
         <>
-          <header>
-            <h1>Secure File Storage on Cloud</h1>
-            <a href="https://github.com/ashishkarche/SecureFileApp" target="_blank" rel="noopener noreferrer">
-              <FaGithub style={{ fontSize: '24px', color: 'white', marginLeft: '10px' }} />
-            </a>
-          </header>
-          {loading ? (
-            <DotLoader />
-          ) : (
-            <main>
-              <DownloadApp />
-              <AppInfo />
-              <SystemRequirements />
-              <EncryptionAlgorithms />
-              <MultipartyMethod />
-            </main>
-          )}
-          <footer>
-            <p>© 2024 Secure File Storage App. All rights reserved.</p>
-          </footer>
+          <HeroSection />
+          <FeaturesSection />
+          <ScreenshotCarousel />
+          <TestimonialsSection />
+          <DownloadSection />
+          <Footer />
         </>
       )}
     </div>
